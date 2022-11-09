@@ -104,3 +104,5 @@ dist
 prisma/migrations/migration_lock.toml
 prisma/migrations/20221107134302_init/migration.sql
 prisma/migrations/20221108082738_rem_genderinuser/migration.sql
+package-lock.json
+yarn.lock
