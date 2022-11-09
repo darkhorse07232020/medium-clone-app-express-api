@@ -69,7 +69,10 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
+.env
 .env.test
+package-lock.json
+yarn.lock
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -104,5 +107,3 @@ dist
 prisma/migrations/migration_lock.toml
 prisma/migrations/20221107134302_init/migration.sql
 prisma/migrations/20221108082738_rem_genderinuser/migration.sql
-package-lock.json
-yarn.lock
