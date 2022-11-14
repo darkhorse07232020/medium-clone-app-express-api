@@ -27,7 +27,8 @@
         "node-cron": "^3.0.2",
         "nodemailer": "^6.8.0",
         "otp-generator": "^4.0.0",
-        "uuid": "^9.0.0"
+        "slug": "^8.2.2",
+        "uniqid": "^5.4.0"
     },
     "devDependencies": {
         "@types/otp-generator": "^4.0.0",

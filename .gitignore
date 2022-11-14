@@ -104,6 +104,4 @@ dist
 
 # TernJS port file
 .tern-port
-prisma/migrations/migration_lock.toml
-prisma/migrations/20221107134302_init/migration.sql
-prisma/migrations/20221108082738_rem_genderinuser/migration.sql
+prisma/migrations

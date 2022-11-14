@@ -1,5 +1,5 @@
 const express = require('express');
-const { v4: uuidv4 } = require('uuid');
+const uniqid = require('uniqid');
 
 const { findUser, filterUser, updateUser } = require('./user.services');
 const { isAuthenticated } = require('../../middlewares');
@@ -60,8 +60,8 @@ router.post('/delete', isAuthenticated, async (req, res, next) => {
         id: userId
       },
       {
-        email: uuidv4(),
-        phone: uuidv4(),
+        email: uniqid.process(),
+        phone: uniqid.process(),
         firstname: '',
         lastname: '',
         gender: '',

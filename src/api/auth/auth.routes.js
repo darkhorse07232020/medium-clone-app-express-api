@@ -1,11 +1,12 @@
 const express = require('express');
-const { v4: uuidv4 } = require('uuid');
+const uniqid = require('uniqid');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const { generateTokens } = require('../../utils/jwt');
 const { hashToken } = require('../../utils/hashToken');
 const { validateRegisterParams } = require('../../utils/validation');
+
 const {
   addRefreshTokenToWhitelist,
   findRefreshTokenById,
@@ -28,6 +29,7 @@ router.post('/register', async (req, res, next) => {
       res.status(400);
       throw new Error(validation.error_msgs);
     }
+
     const {
       email,
       password,
@@ -81,7 +83,7 @@ router.post('/login', async (req, res, next) => {
       throw new Error('Wrong password.Try again or click Forgot password to reset it.');
     }
 
-    const jti = uuidv4();
+    const jti = uniqid.process();
 
     const { accessToken, refreshToken } = generateTokens(existingUser.id, jti);
     await addRefreshTokenToWhitelist({ jti, refreshToken, userId: existingUser.id });
@@ -131,7 +133,7 @@ router.post('/refreshToken', async (req, res, next) => {
     }
 
     await deleteRefreshToken(savedRefreshToken.id);
-    const jti = uuidv4();
+    const jti = uniqid();
     const { accessToken, refreshToken: newRefreshToken } = generateTokens(user.id, jti);
     await addRefreshTokenToWhitelist({ jti, refreshToken: newRefreshToken, userId: user.id });
 
